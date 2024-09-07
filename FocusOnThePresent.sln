@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocusOnThePresent", "FocusOnThePresent.csproj", "{82AEE701-EECF-4A5F-9D30-FD98DC2643FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FocusOnThePresent_5eztsz1o_wpftmp", "FocusOnThePresent_5eztsz1o_wpftmp.csproj", "{487C1EF6-6B7D-475A-93D0-CFA05C8C48EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82AEE701-EECF-4A5F-9D30-FD98DC2643FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82AEE701-EECF-4A5F-9D30-FD98DC2643FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82AEE701-EECF-4A5F-9D30-FD98DC2643FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82AEE701-EECF-4A5F-9D30-FD98DC2643FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487C1EF6-6B7D-475A-93D0-CFA05C8C48EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487C1EF6-6B7D-475A-93D0-CFA05C8C48EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487C1EF6-6B7D-475A-93D0-CFA05C8C48EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487C1EF6-6B7D-475A-93D0-CFA05C8C48EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {102D6DF7-3529-43BC-A3C3-5812E78EBE0B}
+	EndGlobalSection
+EndGlobal
