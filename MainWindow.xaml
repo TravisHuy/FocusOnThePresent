@@ -5,8 +5,175 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FocusOnThePresent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Focus On The Present"
+        Height="600"
+        Width="350"
+        Background="#FF2E8B57">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <!-- Header -->
+        <TextBlock Text="⏳"
+                   FontSize="20"
+                   Foreground="White"
+                   HorizontalAlignment="Center"/>
+
+        <!-- Main Content -->
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding StatusMessage}"
+                       Foreground="White"
+                       FontSize="16"
+                       Margin="10,20,10,10"
+                       HorizontalAlignment="Center"/>
+            <Border Background="#F0EAD6"
+                    CornerRadius="100"
+                    Width="200"
+                    Height="200"
+                    Margin="0,20,0,20">
+                <Grid>
+                    <Ellipse Width="180"
+                             Height="180"
+                             Fill="#8B4513"/>
+                    <Image Source="{Binding SelectedTree.ImageSource}"
+                           Width="100"
+                           Height="100"
+                           Stretch="Uniform"/>
+                </Grid>
+            </Border>
+            <TextBlock Text="Edit"
+                       Foreground="White"
+                       FontSize="18"
+                       Margin="0,20,0,0"
+                       HorizontalAlignment="Center">
+                <TextBlock.InputBindings>
+                    <MouseBinding MouseAction="LeftClick"
+                                  Command="{Binding ShowBottomSheetCommand}"/>
+                </TextBlock.InputBindings>
+            </TextBlock>
+            <TextBlock Text="{Binding TimerDisplay}"
+                       Foreground="White"
+                       FontSize="48"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Footer -->
+        <Button Grid.Row="2"
+                Content="{Binding ButtonText}"
+                Width="200"
+                Height="40"
+                FontSize="18"
+                Background="#FF98FB98"
+                Foreground="#FF006400"
+                BorderThickness="0"
+                Margin="0,0,0,20"
+                Command="{Binding ToggleTimerCommand}"/>
+
+        <!-- Bottom Sheet -->
+        <Grid x:Name="BottomSheet"
+              Grid.RowSpan="3"
+              VerticalAlignment="Bottom"
+              Height="0"
+              Background="White">
+            <StackPanel Margin="20">
+                <TextBlock Text="Planting Settings"
+                           FontSize="20"
+                           Margin="0,0,0,20"/>
+
+                <TextBlock Text="Trees (Recently unlocked)"
+                           FontSize="16"
+                           Margin="0,0,0,10"/>
+                <ListBox ItemsSource="{Binding Trees}"
+                         SelectedItem="{Binding SelectedTree}"
+                         Height="100"
+                         Margin="0,0,0,20">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImageSource}"
+                                   Width="40"
+                                   Height="40"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBlock Text="Focused Time"
+                           FontSize="16"
+                           Margin="0,0,0,10"/>
+                <ListBox ItemsSource="{Binding FocusTimes}"
+                         SelectedItem="{Binding SelectedFocusTime}"
+                         Height="50"
+                         Margin="0,0,0,20">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"
+                                       Margin="5"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <TextBlock Text="Tags"
+                           FontSize="16"
+                           Margin="0,0,0,10"/>
+                <ListBox ItemsSource="{Binding Tags}"
+                         SelectedItem="{Binding SelectedTag}"
+                         Height="50"
+                         Margin="0,0,0,20">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Fill="{Binding Color}"
+                                         Width="20"
+                                         Height="20"
+                                         Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Content="Plant"
+                        Command="{Binding PlantCommand}"
+                        Background="#FF98FB98"
+                        Foreground="#FF006400"
+                        Height="40"
+                        FontSize="18"/>
+            </StackPanel>
+        </Grid>
     </Grid>
+
+    <Window.Resources>
+        <Storyboard x:Key="ShowBottomSheet">
+            <DoubleAnimation Storyboard.TargetName="BottomSheet"
+                             Storyboard.TargetProperty="Height"
+                             From="0"
+                             To="500"
+                             Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="HideBottomSheet">
+            <DoubleAnimation Storyboard.TargetName="BottomSheet"
+                             Storyboard.TargetProperty="Height"
+                             From="500"
+                             To="0"
+                             Duration="0:0:0.3"/>
+        </Storyboard>
+    </Window.Resources>
 </Window>

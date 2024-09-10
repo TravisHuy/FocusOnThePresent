@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\FocusOnThePresent\\FocusOnThePresent.csproj",
+      "projectUniqueName": "G:\\FocusOnThePresent\\FocusOnThePresent.csproj",
       "projectName": "FocusOnThePresent",
-      "projectPath": "H:\\FocusOnThePresent\\FocusOnThePresent.csproj",
+      "projectPath": "G:\\FocusOnThePresent\\FocusOnThePresent.csproj",
       "packagesPath": "C:\\Users\\kexpe\\.nuget\\packages\\",
-      "outputPath": "H:\\FocusOnThePresent\\obj\\",
+      "outputPath": "G:\\FocusOnThePresent\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kexpe\\AppData\\Roaming\\NuGet\\NuGet.Config"
